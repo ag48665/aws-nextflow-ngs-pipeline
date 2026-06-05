@@ -6,7 +6,7 @@ A cloud-ready bioinformatics pipeline for next-generation sequencing (NGS) data 
 
 This project demonstrates the development of a reproducible and containerized bioinformatics workflow for processing sequencing data.
 
-The pipeline is designed to follow modern DevOps and Bioinformatics best practices:
+The pipeline follows modern Bioinformatics and DevOps best practices:
 
 * workflow automation with Nextflow
 * containerized execution with Docker
@@ -15,26 +15,13 @@ The pipeline is designed to follow modern DevOps and Bioinformatics best practic
 * cloud-ready deployment design
 * version-controlled infrastructure
 
-The long-term goal is to extend the workflow for execution on AWS Batch using Terraform-managed infrastructure.
-
----
-## Workflow Diagram
-
-![Workflow](docs/workflow.png)
-
-## Example Pipeline Execution
-
-![Nextflow Run](docs/nextflow-run.png)
-
-## Example Results
-
-![Results](docs/results-example.png)
+The long-term goal is to extend the workflow for scalable execution on AWS Batch using Terraform-managed infrastructure.
 
 ---
 
 ## Workflow
 
-Current implementation:
+### Current Implementation
 
 ```text
 FASTQ
@@ -46,7 +33,7 @@ Trim Galore
 FastQC (trimmed reads)
 ```
 
-Planned production workflow:
+### Planned Production Workflow
 
 ```text
 FASTQ
@@ -67,6 +54,7 @@ MultiQC Report
 ```
 
 ---
+
 ## Workflow Diagram
 
 ![Workflow](docs/workflow.png)
@@ -118,7 +106,7 @@ MultiQC Report
 │   ├── fastqc/
 │   └── trimgalore/
 ├── data/
-├── results/
+├── docs/
 ├── terraform/
 └── README.md
 ```
@@ -180,9 +168,9 @@ Planned enhancements:
 * SAMtools processing
 * BCFtools variant calling
 * AWS Batch execution
-* S3 input/output storage
+* Amazon S3 integration
 * Terraform deployment automation
-* CI/CD integration with GitHub Actions
+* CI/CD with GitHub Actions
 
 ---
 
@@ -200,4 +188,4 @@ GitHub: https://github.com/ag48665
 
 🚧 Active development
 
-Current version includes FastQC and Trim Galore modules running successfully in Docker containers through Nextflow.
+Current version includes FastQC and Trim Galore modules running successfully in Docker containers through Nextflow. AWS integration and downstream NGS analysis modules are currently under development.
