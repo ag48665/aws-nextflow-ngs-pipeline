@@ -3,5 +3,5 @@ work/
 .nextflow/
 .nextflow.log
 .nextflow.log*
-
+results/
 
