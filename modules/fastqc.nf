@@ -1,5 +1,7 @@
 process FASTQC {
 
+    publishDir "results/fastqc", mode: 'copy'
+
     tag "$reads"
 
     input:
