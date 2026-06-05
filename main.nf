@@ -1,16 +1,8 @@
 nextflow.enable.dsl=2
 
-process HELLO {
-
-    output:
-    path "hello.txt"
-
-    script:
-    """
-    echo "Bioinformatics pipeline started" > hello.txt
-    """
-}
+include { FASTQC } from './modules/fastqc'
 
 workflow {
-    HELLO()
+    reads = Channel.fromPath("data/*.fq")
+    FASTQC(reads)
 }
