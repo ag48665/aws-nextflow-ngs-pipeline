@@ -54,6 +54,19 @@ MultiQC Report
 ```
 
 ---
+## Workflow Diagram
+
+![Workflow](docs/workflow.png)
+
+## Example Pipeline Execution
+
+![Nextflow Run](docs/nextflow-run.png)
+
+## Example Results
+
+![Results](docs/results-example.png)
+
+---
 
 ## Technologies
 
