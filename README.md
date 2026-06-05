@@ -1,20 +1,27 @@
 # aws-nextflow-ngs-pipeline
 
-Cloud-native NGS analysis pipeline built with Nextflow, Docker, AWS-ready infrastructure, and Infrastructure as Code principles.
+A cloud-ready bioinformatics pipeline for next-generation sequencing (NGS) data processing built with Nextflow, Docker and Infrastructure as Code principles.
 
-## Project Goal
+## Overview
 
-This project demonstrates a reproducible bioinformatics workflow for processing next-generation sequencing (NGS) data using containerized tools and workflow automation.
+This project demonstrates the development of a reproducible and containerized bioinformatics workflow for processing sequencing data.
 
-The current pipeline performs:
+The pipeline is designed to follow modern DevOps and Bioinformatics best practices:
 
-* Raw FASTQ quality control (FastQC)
-* Read trimming (Trim Galore)
-* Quality control after trimming (FastQC)
+* workflow automation with Nextflow
+* containerized execution with Docker
+* reproducible analyses
+* modular pipeline architecture
+* cloud-ready deployment design
+* version-controlled infrastructure
 
-The project is being extended toward a complete AWS Batch-based NGS workflow.
+The long-term goal is to extend the workflow for execution on AWS Batch using Terraform-managed infrastructure.
 
-## Current Workflow
+---
+
+## Workflow
+
+Current implementation:
 
 ```text
 FASTQ
@@ -26,16 +33,51 @@ Trim Galore
 FastQC (trimmed reads)
 ```
 
+Planned production workflow:
+
+```text
+FASTQ
+  ↓
+FastQC
+  ↓
+Trim Galore
+  ↓
+FastQC
+  ↓
+BWA Alignment
+  ↓
+SAMtools
+  ↓
+BCFtools Variant Calling
+  ↓
+MultiQC Report
+```
+
+---
+
 ## Technologies
+
+### Workflow & DevOps
 
 * Nextflow
 * Docker
-* Git & GitHub
-* Linux (WSL2)
+* Git
+* GitHub
+* Linux (Ubuntu / WSL2)
+
+### Bioinformatics Tools
+
 * FastQC
 * Trim Galore
-* AWS (planned)
+
+### Cloud & Infrastructure
+
+* AWS Batch (planned)
+* AWS S3 (planned)
+* AWS ECR (planned)
 * Terraform (planned)
+
+---
 
 ## Repository Structure
 
@@ -51,21 +93,85 @@ FastQC (trimmed reads)
 │   └── trimgalore/
 ├── data/
 ├── results/
+├── terraform/
 └── README.md
 ```
 
+---
+
 ## Running the Pipeline
+
+### Requirements
+
+* Docker
+* Nextflow
+* Linux / WSL2
+
+### Execute
 
 ```bash
 nextflow run main.nf -with-docker
 ```
 
-## Example Output
+---
 
-The workflow generates:
+## Example Output
 
 ```text
 results/
 ├── fastqc/
-│   ├── R1_fastqc
+│   ├── R1_fastqc.html
+│   ├── R1_fastqc.zip
+│   ├── R1_trimmed_fastqc.html
+│   └── R1_trimmed_fastqc.zip
+└── trimgalore/
+    └── R1_trimmed.fq
 ```
+
+---
+
+## Skills Demonstrated
+
+This project demonstrates practical experience with:
+
+* workflow orchestration
+* Docker containerization
+* Linux command-line environments
+* Git version control
+* modular pipeline design
+* reproducible bioinformatics workflows
+* cloud-ready architecture
+* NGS data quality control
+
+---
+
+## Future Development
+
+Planned enhancements:
+
+* MultiQC integration
+* BWA alignment module
+* SAMtools processing
+* BCFtools variant calling
+* AWS Batch execution
+* S3 input/output storage
+* Terraform deployment automation
+* CI/CD integration with GitHub Actions
+
+---
+
+## Author
+
+**Agata Gabara**
+
+Bioinformatics | Cloud Computing | DevOps for Life Sciences
+
+GitHub: https://github.com/ag48665
+
+---
+
+## Project Status
+
+🚧 Active development
+
+Current version includes FastQC and Trim Galore modules running successfully in Docker containers through Nextflow.
