@@ -1,86 +1,71 @@
 # aws-nextflow-ngs-pipeline
 
-Cloud-native NGS analysis pipeline built with AWS Batch, Nextflow, Docker and Terraform.
+Cloud-native NGS analysis pipeline built with Nextflow, Docker, AWS-ready infrastructure, and Infrastructure as Code principles.
 
-## Project goal
+## Project Goal
 
-This project demonstrates a reproducible bioinformatics workflow for processing next-generation sequencing data on AWS.
+This project demonstrates a reproducible bioinformatics workflow for processing next-generation sequencing (NGS) data using containerized tools and workflow automation.
 
-The pipeline takes raw FASTQ files and performs:
+The current pipeline performs:
 
-- quality control
-- read trimming
-- alignment
-- variant calling
-- final MultiQC report generation
+* Raw FASTQ quality control (FastQC)
+* Read trimming (Trim Galore)
+* Quality control after trimming (FastQC)
 
-## Tech stack
+The project is being extended toward a complete AWS Batch-based NGS workflow.
 
-- AWS S3
-- AWS Batch
-- AWS ECR
-- Nextflow
-- Docker
-- Terraform
-- Python / Bash
-- FastQC
-- Trim Galore
-- BWA
-- Samtools
-- BCFtools
-- MultiQC
-
-## Architecture
+## Current Workflow
 
 ```text
-FASTQ files
-   ↓
-S3 input bucket
-   ↓
-Nextflow workflow
-   ↓
-AWS Batch jobs
-   ↓
-Docker containers from ECR
-   ↓
-S3 output bucket
-   ↓
-MultiQC report
+FASTQ
+  ↓
+FastQC
+  ↓
+Trim Galore
+  ↓
+FastQC (trimmed reads)
 ```
 
-## Pipeline steps
+## Technologies
 
-1. Upload FASTQ files to S3
-2. Run quality control with FastQC
-3. Trim low-quality reads
-4. Align reads to a reference genome
-5. Sort and index BAM files
-6. Call variants
-7. Generate a MultiQC report
+* Nextflow
+* Docker
+* Git & GitHub
+* Linux (WSL2)
+* FastQC
+* Trim Galore
+* AWS (planned)
+* Terraform (planned)
 
-## Repository structure
+## Repository Structure
 
 ```text
 .
 ├── main.nf
 ├── nextflow.config
 ├── modules/
+│   ├── fastqc.nf
+│   └── trimgalore.nf
 ├── docker/
-├── terraform/
-├── scripts/
+│   ├── fastqc/
+│   └── trimgalore/
+├── data/
+├── results/
 └── README.md
 ```
 
-## Why this project matters
+## Running the Pipeline
 
-Bioinformatics teams increasingly use cloud platforms to process genomic data at scale. This project shows practical experience with cloud infrastructure, reproducible workflows, containerized tools and NGS data analysis.
+```bash
+nextflow run main.nf -with-docker
+```
 
-## Status
+## Example Output
 
-Work in progress.
+The workflow generates:
 
-
-
-
-
-
+```text
+results/
+├── fastqc/
+│   ├── R1_fastqc
+```
