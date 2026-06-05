@@ -2,6 +2,8 @@ process TRIMGALORE {
 
     publishDir "results/trimgalore", mode: 'copy'
 
+    container 'trimgalore:1.0'
+
     tag "$reads"
 
     input:
@@ -12,10 +14,6 @@ process TRIMGALORE {
 
     script:
     """
-    cp $reads input.fq
-
-    cat input.fq > trimmed.fq
-
-    mv trimmed.fq ${reads.baseName}_trimmed.fq
+    trim_galore --dont_gzip $reads
     """
 }
