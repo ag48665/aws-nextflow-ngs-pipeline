@@ -18,6 +18,19 @@ The pipeline is designed to follow modern DevOps and Bioinformatics best practic
 The long-term goal is to extend the workflow for execution on AWS Batch using Terraform-managed infrastructure.
 
 ---
+## Workflow Diagram
+
+![Workflow](docs/workflow.png)
+
+## Example Pipeline Execution
+
+![Nextflow Run](docs/nextflow-run.png)
+
+## Example Results
+
+![Results](docs/results-example.png)
+
+---
 
 ## Workflow
 
