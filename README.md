@@ -46,19 +46,21 @@ Docker containers from ECR
 S3 output bucket
    ↓
 MultiQC report
+```
 
----
-Pipeline steps
-Upload FASTQ files to S3
-Run quality control with FastQC
-Trim low-quality reads
-Align reads to a reference genome
-Sort and index BAM files
-Call variants
-Generate a MultiQC report
+## Pipeline steps
 
----
-Repository structure
+1. Upload FASTQ files to S3
+2. Run quality control with FastQC
+3. Trim low-quality reads
+4. Align reads to a reference genome
+5. Sort and index BAM files
+6. Call variants
+7. Generate a MultiQC report
+
+## Repository structure
+
+```text
 .
 ├── main.nf
 ├── nextflow.config
@@ -67,14 +69,18 @@ Repository structure
 ├── terraform/
 ├── scripts/
 └── README.md
+```
 
-Why this project matters
+## Why this project matters
 
 Bioinformatics teams increasingly use cloud platforms to process genomic data at scale. This project shows practical experience with cloud infrastructure, reproducible workflows, containerized tools and NGS data analysis.
 
---
-
-
-Status
+## Status
 
 Work in progress.
+
+
+
+
+
+
