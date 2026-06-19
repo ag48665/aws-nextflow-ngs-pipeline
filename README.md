@@ -18,6 +18,15 @@ The pipeline follows modern Bioinformatics and DevOps best practices:
 The long-term goal is to extend the workflow for scalable execution on AWS Batch using Terraform-managed infrastructure.
 
 ---
+## Scientific Motivation
+
+Modern genomics projects routinely generate terabytes of sequencing data that require scalable, reproducible, and automated processing.
+
+Workflow management systems such as Nextflow, combined with containerization and cloud infrastructure, have become standard solutions for large-scale bioinformatics pipelines.
+
+This project explores how reproducible NGS workflows can be designed using modern software engineering and infrastructure practices.
+
+---
 
 ## Workflow
 
@@ -146,16 +155,41 @@ results/
 
 ## Skills Demonstrated
 
-This project demonstrates practical experience with:
+### Bioinformatics
 
-* workflow orchestration
-* Docker containerization
-* Linux command-line environments
-* Git version control
-* modular pipeline design
-* reproducible bioinformatics workflows
-* cloud-ready architecture
-* NGS data quality control
+- NGS quality control
+- FASTQ processing
+- Workflow automation
+- Reproducible genomics pipelines
+
+### Workflow Engineering
+
+- Nextflow DSL2
+- Modular pipeline architecture
+- Containerized execution
+- Pipeline orchestration
+
+### Cloud & DevOps
+
+- Docker
+- Infrastructure as Code
+- Terraform
+- AWS Batch architecture
+- Git-based development
+
+### Research Computing
+
+- Linux
+- Bash
+- High-throughput computing
+- Scalable data processing
+
+---
+## Key Takeaway
+
+This project demonstrates how modern bioinformatics workflows can be designed using workflow orchestration, containerization, and infrastructure automation principles.
+
+The resulting architecture supports reproducibility, scalability, and future deployment in cloud-based genomics environments.
 
 ---
 
@@ -175,12 +209,15 @@ Planned enhancements:
 ---
 
 ## Author
+Incoming MSc Bioinformatics Student
 
-**Agata Gabara**
+Research Interests:
 
-Bioinformatics | Cloud Computing | DevOps for Life Sciences
-
-GitHub: https://github.com/ag48665
+- Bioinformatics Infrastructure
+- Computational Biology
+- Cloud Computing for Genomics
+- Reproducible Research
+- Cancer Genomics
 
 ---
 
